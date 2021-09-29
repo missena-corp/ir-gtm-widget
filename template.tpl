@@ -14,7 +14,7 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "Instant Recall Widget",
-  "categories": ["EMAIL_MARKETING", "REMARKETING"],
+  "categories": ["EMAIL_MARKETING"],
   "brand": {
     "id": "brand_missena",
     "displayName": "Missena",
