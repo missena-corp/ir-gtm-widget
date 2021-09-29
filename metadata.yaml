@@ -1,5 +1,7 @@
 homepage: "https://missena.com/"
 documentation: "https://missena-corp.github.io/documentation/docs/instant-recall"
 versions:
+  - sha: dc895d0eba4c0a9c33a10b2b89f97cf5bb7b00f8
+    changeNotes: Update categories. 
   - sha: ee44249379270bdcd4fe1f2a827d9a2970039fe2
     changeNotes: Initial release. 
