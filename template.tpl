@@ -59,10 +59,11 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 const setInWindow = require('setInWindow');
 const log = require('logToConsole');
 const injectScript = require('injectScript');
+const encodeUriComponent = require('encodeUriComponent');
 
 function irScrapper(){ return data.pageData.products[0];}
 const apiUrl = data.isDev? 'https://api-ir.staging.missena.xyz/?t=' : 'https://api.instantrecall.me/?t=';
-const url = apiUrl+data.merchantKey+'&locale='+data.pageData.locale;
+const url = apiUrl+encodeUriComponent(data.merchantKey)+'&locale='+encodeUriComponent(data.pageData.locale);
 
 setInWindow('irScrapper', irScrapper, true); 
 injectScript(url, data.gtmOnSuccess, data.gtmOnFailure); 
