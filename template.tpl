@@ -61,7 +61,7 @@ const log = require('logToConsole');
 const injectScript = require('injectScript');
 const encodeUriComponent = require('encodeUriComponent');
 
-function irScrapper(){ return data.pageData.products[0];}
+function irScrapper(){ return data.pageData;}
 const apiUrl = data.isDev? 'https://api-ir.staging.missena.xyz/?t=' : 'https://api.instantrecall.me/?t=';
 const url = apiUrl+encodeUriComponent(data.merchantKey)+'&locale='+encodeUriComponent(data.pageData.locale);
 
