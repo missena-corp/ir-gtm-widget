@@ -62,11 +62,20 @@ const injectScript = require('injectScript');
 const encodeUriComponent = require('encodeUriComponent');
 
 function irScrapper(){ return data.pageData;}
-const apiUrl = data.isDev? 'https://api-ir.staging.missena.xyz/?t=' : 'https://api.instantrecall.me/?t=';
-const url = apiUrl+encodeUriComponent(data.merchantKey)+'&locale='+encodeUriComponent(data.pageData.locale);
 
-setInWindow('irScrapper', irScrapper, true); 
-injectScript(url, data.gtmOnSuccess, data.gtmOnFailure); 
+const apiUrl = data.isDev? 'https://api-ir.staging.missena.xyz/?t=' : 'https://api.instantrecall.me/?t=';
+if(data.pageData == undefined){
+// no page data, assume the merchant has Open Graph Protocol and no locale set 
+  const url = apiUrl+encodeUriComponent(data.merchantKey);   
+  injectScript(url, data.gtmOnSuccess, data.gtmOnFailure); 
+}
+else {
+  //if locale is set add it to the api URL
+  const localePart = data.pageData.locale ? '&locale='+encodeUriComponent(data.pageData.locale) : '';
+  const url = apiUrl+encodeUriComponent(data.merchantKey)+localePart;
+  setInWindow('irScrapper', irScrapper, true); 
+  injectScript(url, data.gtmOnSuccess, data.gtmOnFailure); 
+}
 
 // Call data.gtmOnSuccess when the tag is finished.
 data.gtmOnSuccess();
