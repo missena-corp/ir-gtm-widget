@@ -1,6 +1,8 @@
 homepage: "https://missena.com/"
 documentation: "https://missena-corp.github.io/documentation/docs/instant-recall"
 versions:
+  - sha: b6ed113cdd5d4f95bb5af4185b4b2118b18fcf1f
+    changeNotes: Update to new metadata schema.
   - sha: 2db621fe19bd28d14734217de8bb3f1855df0274
     changeNotes: Properly encode parameters.
   - sha: dc895d0eba4c0a9c33a10b2b89f97cf5bb7b00f8
